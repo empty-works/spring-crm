@@ -8,9 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.emptyworks.springcrm.entity.Customer;
 
+// Need this so Hibernate can component scan and find this repository and also handle 
+// exception translation.
+@Repository
 public class CustomerDAOImpl implements CustomerDAO {
 
 	// Need to inject the session factory
