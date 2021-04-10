@@ -22,25 +22,32 @@
 			</div>
 		</div>
 		
-		<br><br>
-		
 		<div id="container">
-			<!-- Add out html table here -->
-			<table>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-				</tr>
-				<!-- Loop over and print our customers -->
-				<c:forEach var="tempCustomer" items="${customers}">
+			<div id="content">
+				<!-- Put new button: Add customer -->
+				<!-- This calls Spring Controller mapping -->
+				<input type="button" value="Add Customer" 
+					onclick="window.location.href='showFormForAdd'; return false;"
+					class="add-button"
+				/>
+				
+				<!-- Add html table here -->
+				<table>
 					<tr>
-						<td> ${tempCustomer.firstName}	</td>
-						<td> ${tempCustomer.lastName} </td>
-						<td> ${tempCustomer.email}	</td>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
 					</tr>
-				</c:forEach>
-			</table>
+					<!-- Loop over and print our customers -->
+					<c:forEach var="tempCustomer" items="${customers}">
+						<tr>
+							<td> ${tempCustomer.firstName}	</td>
+							<td> ${tempCustomer.lastName} </td>
+							<td> ${tempCustomer.email}	</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
 		</div>
 
 	</body>
