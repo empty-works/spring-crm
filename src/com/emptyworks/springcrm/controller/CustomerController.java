@@ -35,6 +35,9 @@ public class CustomerController {
 	@RequestMapping(path="/showFormForAdd", method=RequestMethod.GET)
 	public String showFormForAdd(Model theModel) {
 		
+		// Create model attribute to bind form data
+		Customer theCustomer = new Customer();
+		theModel.addAttribute("customer", theCustomer);
 		return "customer-form";
 	}
 }
