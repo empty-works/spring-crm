@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.emptyworks.springcrm.entity.Customer;
 import com.emptyworks.springcrm.service.CustomerService;
@@ -48,5 +49,20 @@ public class CustomerController {
 		// Save the customer using our service
 		customerService.saveCustomer(theCustomer);
 		return "redirect:/customer/list";
+	}
+	
+	// Remember, you can also use GetMapping("/showFormUpdate")
+	@RequestMapping(path="/showFormUpdate", method=RequestMethod.GET)
+	public String showFormUpdate(@RequestParam("customerId") int theId, 
+								 Model theModel) {
+		
+		// Get the customer from the database
+
+		
+		// Set customer as a model attribute to pre-populate the form
+		
+		// Send over to the form
+		
+		return null;
 	}
 }
