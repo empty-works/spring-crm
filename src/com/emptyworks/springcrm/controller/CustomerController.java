@@ -56,13 +56,13 @@ public class CustomerController {
 	public String showFormUpdate(@RequestParam("customerId") int theId, 
 								 Model theModel) {
 		
-		// Get the customer from the database
-
+		// Get the customer from the service 
+		Customer theCustomer = customerService.getCustomer(theId);
 		
 		// Set customer as a model attribute to pre-populate the form
+		theModel.addAttribute("customer", theCustomer);
 		
 		// Send over to the form
-		
-		return null;
+		return "customer-form";
 	}
 }
