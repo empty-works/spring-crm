@@ -51,7 +51,7 @@ public class CustomerController {
 		return "redirect:/customer/list";
 	}
 	
-	// Remember, you can also use GetMapping("/showFormUpdate")
+	// Remember, you can also use @GetMapping("/showFormUpdate")
 	@RequestMapping(path="/showFormUpdate", method=RequestMethod.GET)
 	public String showFormUpdate(@RequestParam("customerId") int theId, 
 								 Model theModel) {
@@ -64,5 +64,15 @@ public class CustomerController {
 		
 		// Send over to the form
 		return "customer-form";
+	}
+	
+	// Remember, you can also use @GetMapping("/delete")
+	@RequestMapping(path="/delete", method=RequestMethod.GET)
+	public String deleteCustomer(@RequestParam("customerId") int theId) {
+		
+		// Delete the customer
+		customerService.deleteCustomer(theId);
+		
+		return "redirect:/customer/list";
 	}
 }
